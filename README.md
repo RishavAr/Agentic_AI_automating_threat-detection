@@ -3,6 +3,10 @@
 > **Course:** DAEN 690 • Spring 2025  
 > **Team:** Rishav Aryan · Durga Prasad Esampelly · Artum Khorshid · Prudhvi Sandeep Mudidana · Samhita Sarikonda · Ravi Teja Talluri
 
+## Overview
+
+NetGuard is an AI-powered, serverless cybersecurity pipeline designed for real-time network traffic analysis and threat mitigation. Built on AWS Lambda and integrated with SecureGPT, NetGuard automates the entire security workflow—from ingesting network logs and correlating them with known anomalies, to enriching them using GPT-based intelligence and generating JIRA tickets for high-severity threats. The system leverages modular agents that ensure scalability, compliance with NIST SP 800-53 standards, and adaptability to evolving threat landscapes. By combining cloud-native infrastructure, anomaly detection, and large language model reasoning, NetGuard transforms raw packet data into actionable threat intelligence—enabling proactive, intelligent, and auditable cyber defense
+
 ## 🧩 System Architecture
 ![System Architecture](Resources/diagrams/Architecture.png)
 NetGuard is composed of four core Lambda agents deployed in a serverless pipeline:
