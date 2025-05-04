@@ -1,0 +1,13 @@
+Build a Python Lambda function called NetGuard_Aggregator that merges all chunk-level threat reports into a single final output file.
+
+Responsibilities:
+• Accept partial_keys (list of chunk result files) via event.
+• Load each file from ANALYZED_CHUNKS_BUCKET/temp_analysis/.
+• Concatenate all partial DataFrames into one.
+• Save the result to FINAL_OUTPUT_BUCKET/final/ with a timestamped filename.
+• Delete temporary analysis files and optionally delete raw chunk files if temp_chunk_keys are provided.
+• Return the final_output_key.
+
+Additional Info:
+• Use pandas, zoneinfo, and StringIO.
+• Include logging and validation to avoid merging empty or malformed files.
