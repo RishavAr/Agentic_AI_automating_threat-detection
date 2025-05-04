@@ -65,7 +65,7 @@ SecureGPT, hosted by Accure.ai, is a fine-tuned LLaMA model:
 - **Post-Reflexion Improvements**: Reflexive updates improved precision.
 - **Load Handling**: Parallel chunking & SecureGPT invocation scaled efficiently.
 
-![Accuracy vs F1](results/accuracy_f1_plot.png)
+![Accuracy vs F1](Results/Quality_matrix_with_reflection.png)
 
 ---
 
