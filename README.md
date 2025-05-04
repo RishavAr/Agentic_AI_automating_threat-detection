@@ -4,8 +4,13 @@
 > **Team:** Rishav Aryan · Durga Prasad Esampelly · Artum Khorshid · Prudhvi Sandeep Mudidana · Samhita Sarikonda · Ravi Teja Talluri
 
 ## Overview
+The NetGuard Project Create Network Traffic Monitoring and Threat Mitigation Agent is an AI-powered cybersecurity system that may automatically reduce security risks by monitoring network traffic continuously, identifying dangers from non-compliant logs, and taking appropriate action. Our objective is to create an intelligent agent that proactively detects and reacts to cyber threats in real-time, hence enhancing network security. 
 
-NetGuard is an AI-powered, serverless cybersecurity pipeline designed for real-time network traffic analysis and threat mitigation. Built on AWS Lambda and integrated with SecureGPT, NetGuard automates the entire security workflow—from ingesting network logs and correlating them with known anomalies, to enriching them using GPT-based intelligence and generating JIRA tickets for high-severity threats. The system leverages modular agents that ensure scalability, compliance with NIST SP 800-53 standards, and adaptability to evolving threat landscapes. By combining cloud-native infrastructure, anomaly detection, and large language model reasoning, NetGuard transforms raw packet data into actionable threat intelligence—enabling proactive, intelligent, and auditable cyber defense
+The NIST Cybersecurity Framework alignment is a crucial component of this project, guaranteeing that our strategy adheres to industry best practices for threat detection, incident response, and compliance. By integrating automation, machine learning, and secure AI models, NetGuard improves the capacity to identify weaknesses and stop security breaches before they have a negative impact. 
+
+The NetGuard AI Agent's source code, documentation, and implementation details are all available in this GitHub repository. Real-time network monitoring, automatic threat detection, and security procedures that enable prompt action when threats are detected are all supported by the system's structured development methodology. Testing procedures, deployment plans, and a roadmap for upcoming enhancements are all included in the repository.  
+
+NetGuard is designed for efficiency, flexibility, and ongoing learning by utilizing AWS Lambda for serverless execution, SecureGPT for intelligent analysis, and cloud storage options for scalable data management. This project provides a framework for businesses wishing to use AI-driven automation to strengthen their cybersecurity posture. 
 
 
 ## 🧪 Datasets Used
