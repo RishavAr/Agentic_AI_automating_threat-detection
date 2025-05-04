@@ -113,11 +113,11 @@ SecureGPT, hosted by Accure.ai, is a fine-tuned LLaMA model:
 
 ## 🧠 Team
 - Rishav Aryan
-- Artum Khorshid
 - Durga Prasad Esampelly
+- Artum Khorshid
 - Prudhvi Sandeep Mudidana
-- Ravi Teja Talluri
 - Samhita Sarikonda
+- Ravi Teja Talluri
 
 ---
 
