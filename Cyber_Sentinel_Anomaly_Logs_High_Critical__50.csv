@@ -1,0 +1,51 @@
+Timestamp,Source IP,Destination IP,Source Port,Destination Port,LogID,LogSystem,LogMessage,LogLevel,AnomalyType,AnomalyDescription,NISTReference,TicketID
+2025-04-04 23:09:33,184.88.109.101,190.84.229.147,1554,21526,LOG-0001,SystemB,Malware signature found,Critical,Malware,Suspicious executable file download detected.,SI-3,TICK-4300
+2025-04-05 07:33:04,245.103.221.222,107.154.210.58,46582,7513,LOG-0002,SystemC,High inbound traffic volume,High,DDoS,Flooding of requests detected from multiple IPs.,CM-7,TICK-6296
+2025-04-05 17:11:07,245.103.221.222,107.154.210.58,22450,62785,LOG-0003,SystemA,Suspicious executable detected,Critical,Malware,Malware signature identified in network traffic.,RA-5,TICK-2571
+2025-04-04 22:54:42,215.139.10.236,62.80.80.104,4296,60141,LOG-0004,SystemB,Suspicious executable detected,Critical,Malware,Malware signature identified in network traffic.,CM-7,TICK-2488
+2025-04-05 10:07:25,159.152.218.118,167.123.215.64,33073,21232,LOG-0005,SystemA,Excessive authentication failures,Critical,Brute Force,High volume of failed login attempts detected.,CM-7,TICK-1806
+2025-04-05 13:37:05,184.88.109.101,190.84.229.147,33944,61138,LOG-0006,SystemB,Excessive authentication failures,High,Brute Force,High volume of failed login attempts detected.,IR-4,TICK-2424
+2025-04-05 17:47:32,10.5.24.99,169.246.124.115,58329,36570,LOG-0007,SystemB,Excessive authentication failures,Critical,Brute Force,Excessive authentication failures from a single IP.,RA-5,TICK-8702
+2025-04-05 10:09:11,247.7.97.253,196.22.142.225,52899,18203,LOG-0008,SystemC,Malware signature found,High,Malware,Malware signature identified in network traffic.,AC-2,TICK-4266
+2025-04-04 20:11:17,11.76.178.77,19.67.30.242,63696,54788,LOG-0009,SystemB,Multiple failed logins,Critical,Brute Force,Excessive authentication failures from a single IP.,IR-4,TICK-7102
+2025-04-05 11:54:16,68.50.27.96,18.94.196.117,6845,53206,LOG-0010,SystemC,Multiple failed logins,High,Brute Force,Excessive authentication failures from a single IP.,IR-4,TICK-6940
+2025-04-05 13:57:38,200.106.94.77,162.172.203.223,37494,19594,LOG-0011,SystemC,Repeated port probe detected,Critical,Port Scan,Repeated probing of ports detected.,AC-2,TICK-1301
+2025-04-05 11:45:19,60.161.44.106,228.10.195.80,7203,50601,LOG-0012,SystemB,Unusual outbound data flow,High,Data Exfiltration,Unusually large outbound data transfer observed.,AC-2,TICK-5907
+2025-04-05 16:44:00,219.36.34.160,135.9.141.220,10440,36596,LOG-0013,SystemC,Multiple failed logins,Critical,Brute Force,High volume of failed login attempts detected.,IR-4,TICK-8545
+2025-04-05 09:05:16,101.33.218.144,22.227.107.195,23388,11639,LOG-0014,SystemC,Excessive authentication failures,Critical,Brute Force,Excessive authentication failures from a single IP.,AC-2,TICK-2650
+2025-04-05 02:42:48,101.91.92.218,182.244.244.59,58324,35905,LOG-0015,SystemB,Multiple failed logins,Critical,Brute Force,High volume of failed login attempts detected.,RA-5,TICK-2491
+2025-04-05 12:28:25,167.101.123.167,12.225.43.98,16143,39638,LOG-0016,SystemA,High inbound traffic volume,Critical,DDoS,High rate of connection requests indicating potential DDoS attack.,AC-2,TICK-8441
+2025-04-05 02:41:00,153.245.225.2,24.61.69.19,5659,15234,LOG-0017,SystemB,Potential data breach,High,Data Exfiltration,Unusually large outbound data transfer observed.,AC-2,TICK-1508
+2025-04-05 18:38:01,92.32.30.97,4.108.41.53,26607,25468,LOG-0018,SystemA,Suspicious port scanning detected,Critical,Port Scan,Multiple port scan attempts observed.,IR-4,TICK-7240
+2025-04-05 01:11:03,153.245.225.2,24.61.69.19,58073,47804,LOG-0019,SystemA,Potential DoS attack detected,High,DDoS,Flooding of requests detected from multiple IPs.,AC-2,TICK-2004
+2025-04-05 02:34:34,10.5.24.99,169.246.124.115,5353,32328,LOG-0020,SystemB,Suspicious port scanning detected,Critical,Port Scan,Multiple port scan attempts observed.,AC-2,TICK-2411
+2025-04-05 17:02:47,101.33.218.144,22.227.107.195,42859,6961,LOG-0021,SystemC,High inbound traffic volume,Critical,DDoS,Flooding of requests detected from multiple IPs.,CM-7,TICK-5555
+2025-04-04 19:48:32,26.136.145.138,103.46.47.154,9238,62770,LOG-0022,SystemB,Malware signature found,Critical,Malware,Suspicious executable file download detected.,RA-5,TICK-8800
+2025-04-05 17:05:16,68.50.27.96,18.94.196.117,27216,58055,LOG-0023,SystemA,Excessive authentication failures,Critical,Brute Force,Excessive authentication failures from a single IP.,RA-5,TICK-6873
+2025-04-05 10:18:03,10.5.24.99,169.246.124.115,20166,42727,LOG-0024,SystemA,Unusual outbound data flow,Critical,Data Exfiltration,Suspicious data leak activity detected.,RA-5,TICK-6169
+2025-04-05 07:06:25,54.233.150.245,110.86.21.226,41150,48977,LOG-0025,SystemA,Multiple failed logins,High,Brute Force,Excessive authentication failures from a single IP.,SI-3,TICK-7557
+2025-04-05 08:37:30,68.50.27.96,18.94.196.117,11338,56614,LOG-0026,SystemA,Potential data breach,Critical,Data Exfiltration,Suspicious data leak activity detected.,AC-2,TICK-5421
+2025-04-05 13:15:00,101.91.92.218,182.244.244.59,59866,49021,LOG-0027,SystemB,Excessive authentication failures,Critical,Brute Force,High volume of failed login attempts detected.,RA-5,TICK-9682
+2025-04-05 06:54:31,200.5.47.13,31.211.46.241,5205,60797,LOG-0028,SystemC,Potential data breach,High,Data Exfiltration,Unusually large outbound data transfer observed.,AC-2,TICK-3222
+2025-04-05 04:49:28,26.136.145.138,103.46.47.154,28139,5402,LOG-0029,SystemA,Repeated port probe detected,High,Port Scan,Repeated probing of ports detected.,AC-2,TICK-5357
+2025-04-05 15:14:29,153.222.93.25,114.34.167.64,46987,46131,LOG-0030,SystemC,Multiple failed logins,High,Brute Force,High volume of failed login attempts detected.,SI-3,TICK-9095
+2025-04-05 01:50:45,10.5.24.99,169.246.124.115,27863,8918,LOG-0031,SystemB,Repeated port probe detected,Critical,Port Scan,Repeated probing of ports detected.,AC-2,TICK-1230
+2025-04-04 22:20:40,97.28.229.55,148.174.108.39,6281,58088,LOG-0032,SystemC,Suspicious port scanning detected,High,Port Scan,Multiple port scan attempts observed.,IR-4,TICK-9430
+2025-04-05 13:11:15,26.136.145.138,103.46.47.154,61227,52350,LOG-0033,SystemB,Suspicious port scanning detected,Critical,Port Scan,Multiple port scan attempts observed.,RA-5,TICK-5367
+2025-04-05 13:49:34,101.33.218.144,22.227.107.195,11743,23278,LOG-0034,SystemC,High inbound traffic volume,High,DDoS,Flooding of requests detected from multiple IPs.,RA-5,TICK-7216
+2025-04-04 21:15:53,200.5.47.13,31.211.46.241,63272,36980,LOG-0035,SystemA,High inbound traffic volume,Critical,DDoS,Flooding of requests detected from multiple IPs.,AC-2,TICK-9256
+2025-04-05 16:29:51,209.1.40.121,99.214.240.179,40035,61796,LOG-0036,SystemB,Potential data breach,Critical,Data Exfiltration,Unusually large outbound data transfer observed.,IR-4,TICK-2550
+2025-04-05 04:40:37,101.91.92.218,182.244.244.59,10624,19026,LOG-0037,SystemB,Suspicious port scanning detected,High,Port Scan,Repeated probing of ports detected.,IR-4,TICK-2245
+2025-04-05 14:20:56,26.136.145.138,103.46.47.154,38167,15500,LOG-0038,SystemA,Excessive authentication failures,High,Brute Force,High volume of failed login attempts detected.,IR-4,TICK-1078
+2025-04-04 21:09:39,88.11.244.141,240.179.201.188,55106,28585,LOG-0039,SystemC,Excessive authentication failures,Critical,Brute Force,Excessive authentication failures from a single IP.,IR-4,TICK-3341
+2025-04-05 15:55:24,92.32.30.97,4.108.41.53,20438,5708,LOG-0040,SystemA,Multiple failed logins,Critical,Brute Force,High volume of failed login attempts detected.,AC-2,TICK-6724
+2025-04-04 21:50:15,209.1.40.121,99.214.240.179,56704,29720,LOG-0041,SystemC,Potential data breach,Critical,Data Exfiltration,Suspicious data leak activity detected.,SI-3,TICK-8261
+2025-04-05 04:10:34,60.161.44.106,228.10.195.80,53123,14416,LOG-0042,SystemA,Excessive authentication failures,High,Brute Force,Excessive authentication failures from a single IP.,RA-5,TICK-1041
+2025-04-05 18:39:52,26.136.145.138,103.46.47.154,43914,46087,LOG-0043,SystemA,Excessive authentication failures,High,Brute Force,Excessive authentication failures from a single IP.,IR-4,TICK-6101
+2025-04-05 01:18:41,245.103.221.222,107.154.210.58,19044,38349,LOG-0044,SystemB,Unusual outbound data flow,High,Data Exfiltration,Unusually large outbound data transfer observed.,RA-5,TICK-2751
+2025-04-05 09:51:24,245.103.221.222,107.154.210.58,29335,53381,LOG-0045,SystemA,Excessive authentication failures,Critical,Brute Force,Excessive authentication failures from a single IP.,SI-3,TICK-9908
+2025-04-05 10:34:58,88.11.244.141,240.179.201.188,9386,16567,LOG-0046,SystemB,Suspicious executable detected,High,Malware,Suspicious executable file download detected.,CM-7,TICK-5038
+2025-04-04 22:24:45,88.11.244.141,240.179.201.188,34641,64711,LOG-0047,SystemC,Potential DoS attack detected,Critical,DDoS,High rate of connection requests indicating potential DDoS attack.,IR-4,TICK-3449
+2025-04-05 17:50:38,215.14.114.241,18.67.210.125,59428,24013,LOG-0048,SystemC,Malware signature found,High,Malware,Suspicious executable file download detected.,IR-4,TICK-9886
+2025-04-05 03:01:26,215.14.114.241,18.67.210.125,27911,31921,LOG-0049,SystemC,Excessive authentication failures,Critical,Brute Force,Excessive authentication failures from a single IP.,SI-3,TICK-1526
+2025-04-05 13:43:05,245.103.221.222,107.154.210.58,29531,40868,LOG-0050,SystemC,Multiple failed logins,Critical,Brute Force,High volume of failed login attempts detected.,AC-2,TICK-6937
