@@ -1,0 +1,17 @@
+You are SecureGPT, an AWS expert developer. Generate a complete Python-based AWS Lambda function named NetGuard_Controller that acts as the orchestrator for an AI-powered cybersecurity pipeline called NetGuard.
+This controller function is automatically triggered when a new network traffic file is uploaded to the NETWORK_TRAFFIC_BUCKET. It coordinates the full execution pipeline by calling downstream Lambda agents that process, analyze, enrich, and generate security tickets based on the traffic logs.
+
+Key Functional Flow:
+• Triggered by S3 upload event.
+• Reads S3 bucket and object key from event.
+• Invokes NetGuard_Ingestor synchronously to split large data into smaller chunks.
+• Receives list of chunk keys and concurrently invokes NetGuard_Analyzer for each using ThreadPoolExecutor.
+• Collects partial_output_keys (i.e., enriched per‑chunk results).
+• Sends all collected keys to NetGuard_Aggregator to merge into a final report.
+• Passes the final report key to Ticket_Generator to raise JIRA alerts.
+
+Requirements:
+• Use boto3 with Lambda invoke() and InvocationType="RequestResponse".
+• Log progress with [DEBUG] messages; handle missing data/errors gracefully.
+• Return a structured JSON that includes: chunk_keys, partial_outputs, final_output_key, and ticket_response.
+• All agent Lambda names are passed via environment variables.

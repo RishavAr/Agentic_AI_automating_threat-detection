@@ -1,0 +1,19 @@
+Design a Lambda function called Ticket_Generator. Its job is to convert the final enriched report from FINAL_OUTPUT_BUCKET into JIRA security tickets for all high and critical severity threats.
+
+Responsibilities:
+1. Load final_output_key CSV from S3.
+2. For each row:
+   • If ThreatSeverity is High or Critical:
+     – Compose a JIRA payload:
+       summary: Threat with IP info
+       description: source/destination IPs, threat explanation, action taken, NIST reference
+     – Skip low/medium severity records.
+     – Submit the ticket to JIRA via REST API using:
+       JIRA_EMAIL, JIRA_API_TOKEN, JIRA_PROJECT_KEY, JIRA_ISSUE_TYPE, JIRA_DOMAIN
+3. Log success or failure per ticket.
+4. Return number of tickets created vs skipped.
+
+Technical Considerations:
+• Use requests, pandas, json, StringIO, boto3.
+• Include authentication and handle HTTP 401, 403 errors.
+• Add defensive logging and fail‑safes for incomplete rows.

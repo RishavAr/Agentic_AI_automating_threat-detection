@@ -1,0 +1,25 @@
+You are SecureGPT, an advanced SecureGPT agent. Develop a Lambda function named NetGuard_Analyzer that performs threat classification by analyzing network logs with the support of both SecureGPT and Microsoft Sentinel anomaly logs.
+
+Detailed Pipeline:
+1. Load a specific chunk file from CHUNKS_BUCKET.
+2. Normalize all column names (strip, lowercase).
+3. Fetch the most recent .csv or .json file from SENTINEL_LOG_BUCKET.
+4. For each row in the chunk:
+   • If the combination of sourceip and destinationip matches a row in the Sentinel log:
+     – Extract anomaly fields (logid, anomalytype, logmessage, etc.).
+     – Use them to enrich the GPT prompt.
+     – If logid missing/invalid → SystemLogID = "N/A" else use it.
+   • If no match is found:
+     – Build a prompt from only the traffic data.
+     – Set SystemLogID = "N/A".
+
+5. Call SecureGPT via SECURE_GPT_ENDPOINT (requests, SSL cert from CERT_BUCKET/CERT_KEY).
+6. Parse response strictly as JSON to extract:
+   ThreatSeverity, ActionTaken, ThreatExplanation, NISTReference, AnomalyType, AnomalyDescription
+7. Save enriched rows to ANALYZED_CHUNKS_BUCKET/temp_analysis/.
+8. Delete the processed chunk.
+9. Return partial_output_key for downstream processing.
+
+Extra Points:
+• Use Reflexion-style retry logic if GPT output is not parseable.
+• Log all decisions and fallbacks for traceability.

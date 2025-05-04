@@ -1,0 +1,23 @@
+Write a Python AWS Lambda function called NetGuard_Ingestor. This function is responsible for preprocessing uploaded network logs by validating the file and splitting it into manageable chunks for further analysis.
+
+Detailed Responsibilities:
+• Accept an S3 event triggered by file upload to NETWORK_TRAFFIC_BUCKET.
+• Read the uploaded file (either CSV or JSON).
+• Validate that the file:
+  – Is not empty.
+  – Contains required columns: sourceip, destinationip.
+• Normalize all column names (lowercase, trimmed, no spaces).
+
+Chunking Rules:
+≤ 100 rows  → 1 chunk  
+101 – 999   → 5 chunks  
+≥ 1000      → fixed size of 200 rows per chunk
+
+For each chunk:
+• Save it to CHUNKS_BUCKET/chunks/ with a timestamped name.
+• Return all generated chunk keys.
+
+Best Practices:
+• Use pandas, datetime, zoneinfo, uuid, and StringIO.
+• Use ZoneInfo("America/New_York") for timestamps.
+• Log missing fields, file errors, and column inconsistencies.
