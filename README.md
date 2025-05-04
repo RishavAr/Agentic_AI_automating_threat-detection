@@ -82,7 +82,9 @@ SecureGPT, hosted by Accure.ai, is a fine-tuned LLaMA model:
 
 ## 🎬 Demo Video (Google Drive)
 
-[▶️ Watch Demo Video on Google Drive](https://drive.google.com/file/d/1-fz5eYod2dFaeJBlZmV9zpTHp0o6I0WW/view?usp=share_link)
+<h3>🎬 Demo Video</h3>
+<iframe src="https://drive.google.com/file/d/1-fz5eYod2dFaeJBlZmV9zpTHp0o6I0WW/preview" width="640" height="360" allow="autoplay"></iframe>
+
 
 
 
