@@ -20,7 +20,7 @@ NetGuard is designed for efficiency, flexibility, and ongoing learning by utiliz
 
   
 ## 🧩 System Architecture
-![System Architecture](Resources/diagrams/Architecture.png)
+![System Architecture](Resources/Flow-chart/Architecture.png)
 NetGuard is composed of four core Lambda agents deployed in a serverless pipeline:
 
 - **Agent 1 - NetGuard Ingestor**: S3-triggered Lambda that preprocesses and chunks raw traffic files.
