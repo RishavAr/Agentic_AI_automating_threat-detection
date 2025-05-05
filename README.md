@@ -119,7 +119,7 @@ Four Lambda agents flow in a serverless chain:
 
 > **~15 minutes** using only `aws cli v2` & Python 3.10
 
-### 0 · Prerequisites
+### Prerequisites
 Create a local `.env` (or set env vars in each Lambda):
 
 ```dotenv
