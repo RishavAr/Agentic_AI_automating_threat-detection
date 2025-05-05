@@ -1,0 +1,127 @@
+================================================================================
+🧠 NetGuard Controller Prompt
+================================================================================
+
+You are SecureGPT, an AWS expert developer. Generate a complete Python-based AWS Lambda function named NetGuard_Controller that acts as the orchestrator for an AI-powered cybersecurity pipeline called NetGuard.
+This controller function is automatically triggered when a new network traffic file is uploaded to the NETWORK_TRAFFIC_BUCKET. It coordinates the full execution pipeline by calling downstream Lambda agents that process, analyze, enrich, and generate security tickets based on the traffic logs.
+
+Key Functional Flow:
+• Triggered by S3 upload event.
+• Reads S3 bucket and object key from event.
+• Invokes NetGuard_Ingestor synchronously to split large data into smaller chunks.
+• Receives list of chunk keys and concurrently invokes NetGuard_Analyzer for each using ThreadPoolExecutor.
+• Collects partial_output_keys (i.e., enriched per‑chunk results).
+• Sends all collected keys to NetGuard_Aggregator to merge into a final report.
+• Passes the final report key to Ticket_Generator to raise JIRA alerts.
+
+Requirements:
+• Use boto3 with Lambda invoke() and InvocationType="RequestResponse".
+• Log progress with [DEBUG] messages; handle missing data/errors gracefully.
+• Return a structured JSON that includes: chunk_keys, partial_outputs, final_output_key, and ticket_response.
+• All agent Lambda names are passed via environment variables.
+
+
+================================================================================
+📥 NetGuard Ingestor Prompt
+================================================================================
+
+Write a Python AWS Lambda function called NetGuard_Ingestor. This function is responsible for preprocessing uploaded network logs by validating the file and splitting it into manageable chunks for further analysis.
+
+Detailed Responsibilities:
+• Accept an S3 event triggered by file upload to NETWORK_TRAFFIC_BUCKET.
+• Read the uploaded file (either CSV or JSON).
+• Validate that the file:
+  – Is not empty.
+  – Contains required columns: sourceip, destinationip.
+• Normalize all column names (lowercase, trimmed, no spaces).
+
+Chunking Rules:
+≤ 100 rows  → 1 chunk  
+101 – 999   → 5 chunks  
+≥ 1000      → fixed size of 200 rows per chunk
+
+For each chunk:
+• Save it to CHUNKS_BUCKET/chunks/ with a timestamped name.
+• Return all generated chunk keys.
+
+Best Practices:
+• Use pandas, datetime, zoneinfo, uuid, and StringIO.
+• Use ZoneInfo("America/New_York") for timestamps.
+• Log missing fields, file errors, and column inconsistencies.
+
+
+================================================================================
+🔍 NetGuard Analyzer Prompt
+================================================================================
+
+You are SecureGPT, an advanced SecureGPT agent. Develop a Lambda function named NetGuard_Analyzer that performs threat classification by analyzing network logs with the support of both SecureGPT and Microsoft Sentinel anomaly logs.
+
+Detailed Pipeline:
+1. Load a specific chunk file from CHUNKS_BUCKET.
+2. Normalize all column names (strip, lowercase).
+3. Fetch the most recent .csv or .json file from SENTINEL_LOG_BUCKET.
+4. For each row in the chunk:
+   • If the combination of sourceip and destinationip matches a row in the Sentinel log:
+     – Extract anomaly fields (logid, anomalytype, logmessage, etc.).
+     – Use them to enrich the GPT prompt.
+     – If logid missing/invalid → SystemLogID = "N/A" else use it.
+   • If no match is found:
+     – Build a prompt from only the traffic data.
+     – Set SystemLogID = "N/A".
+
+5. Call SecureGPT via SECURE_GPT_ENDPOINT (requests, SSL cert from CERT_BUCKET/CERT_KEY).
+6. Parse response strictly as JSON to extract:
+   ThreatSeverity, ActionTaken, ThreatExplanation, NISTReference, AnomalyType, AnomalyDescription
+7. Save enriched rows to ANALYZED_CHUNKS_BUCKET/temp_analysis/.
+8. Delete the processed chunk.
+9. Return partial_output_key for downstream processing.
+
+Extra Points:
+• Use Reflexion-style retry logic if GPT output is not parseable.
+• Log all decisions and fallbacks for traceability.
+
+
+================================================================================
+📊 NetGuard Aggregator Prompt
+================================================================================
+
+Build a Python Lambda function called NetGuard_Aggregator that merges all chunk-level threat reports into a single final output file.
+
+Responsibilities:
+• Accept partial_keys (list of chunk result files) via event.
+• Load each file from ANALYZED_CHUNKS_BUCKET/temp_analysis/.
+• Concatenate all partial DataFrames into one.
+• Save the result to FINAL_OUTPUT_BUCKET/final/ with a timestamped filename.
+• Delete temporary analysis files and optionally delete raw chunk files if temp_chunk_keys are provided.
+• Return the final_output_key.
+
+Additional Info:
+• Use pandas, zoneinfo, and StringIO.
+• Include logging and validation to avoid merging empty or malformed files.
+
+
+================================================================================
+🎟️ Ticket Generator Prompt
+================================================================================
+
+Design a Lambda function called Ticket_Generator. Its job is to convert the final enriched report from FINAL_OUTPUT_BUCKET into JIRA security tickets for all high and critical severity threats.
+
+Responsibilities:
+1. Load final_output_key CSV from S3.
+2. For each row:
+   • If ThreatSeverity is High or Critical:
+     – Compose a JIRA payload:
+       summary: Threat with IP info
+       description: source/destination IPs, threat explanation, action taken, NIST reference
+     – Skip low/medium severity records.
+     – Submit the ticket to JIRA via REST API using:
+       JIRA_EMAIL, JIRA_API_TOKEN, JIRA_PROJECT_KEY, JIRA_ISSUE_TYPE, JIRA_DOMAIN
+3. Log success or failure per ticket.
+4. Return number of tickets created vs skipped.
+
+Technical Considerations:
+• Use requests, pandas, json, StringIO, boto3.
+• Include authentication and handle HTTP 401, 403 errors.
+• Add defensive logging and fail‑safes for incomplete rows.
+
+
