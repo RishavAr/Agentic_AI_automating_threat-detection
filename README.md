@@ -1,5 +1,5 @@
 
-# DAEN-690-NetGuard
+
 # NetGuard – Agentic AI for Real‑Time Network Traffic Monitoring & Proactive Threat Mitigation
 > **Course:** DAEN 690 • Spring 2025  
 > **Team:** Rishav Aryan · Durga Prasad Esampelly · Artum Khorshid · Prudhvi Sandeep Mudidana · Samhita Sarikonda · Ravi Teja Talluri
